@@ -180,6 +180,7 @@
                 var tableColumnHtml = "";
                 const FROM_PATTERN = "DD/MM/YYYY HH:mm";
                 const TO_PATTERN = "YYYY-MM-DD HH:mm";
+                const date_formated = dayjs().format(FROM_PATTERN);
 
                 rows.find((o, index) => {
                     o.colunms_tab === table && (columnRows = o.rows);
@@ -267,6 +268,33 @@
                                   },
                               ],
                     order: [[target == -1 ? 0 : target, "desc"]],
+                    createdRow: function (row, data, index) {
+                        if (data.etat == "off") {
+                            $(row).addClass("table-danger");
+                        } else if (data.etat == "on") {
+                            $(row).addClass("table-success");
+                        } else if (data.style == "on") {
+                            $(row).addClass("table-success");
+                        } else if (data.style == "off") {
+                            $(row).addClass("table-danger");
+                        }
+                        if (data.type_action == "off") {
+                            $(row).addClass("table-danger");
+                        } else if (data.type_action == "defb") {
+                            $(row).addClass("table-danger");
+                        } else if (data.type_action == "on") {
+                            $(row).addClass("table-success");
+                        } else if (data.type_action == "defa") {
+                            $(row).addClass("table-success");
+                        }
+                        if (table === "connection") {
+                            if (data.datetime === date_formated) {
+                                $(row).addClass("table-success");
+                            } else {
+                                $(row).addClass("table-danger");
+                            }
+                        }
+                    },
                 });
             });
         }
