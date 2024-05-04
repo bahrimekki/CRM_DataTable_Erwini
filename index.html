@@ -17,6 +17,113 @@
     </head>
     <body>
         <h1 class="text-center">CRM DataTable Erwini</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <!-- NavBar -->
+                            <ul class="nav nav-tabs" id="myTab">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link active"
+                                        id="steg"
+                                        href="#"
+                                        onclick="openTable('steg')"
+                                        >steg</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        id="connection"
+                                        href="#"
+                                        onclick="openTable('connection')"
+                                        >connection</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        id="alarme"
+                                        href="#"
+                                        onclick="openTable('alarme')"
+                                        >alarme</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        id="control"
+                                        href="#"
+                                        onclick="openTable('control')"
+                                        >control</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        id="command"
+                                        href="#"
+                                        onclick="openTable('command')"
+                                        >command</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        href="#"
+                                        id="zone"
+                                        onclick="openTable('zone')"
+                                        >zone</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        href="#"
+                                        id="reonaut"
+                                        onclick="openTable('reonaut')"
+                                        >reonaut</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        href="#"
+                                        id="device"
+                                        onclick="openTable('device')"
+                                        >device</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        href="#"
+                                        id="timePlanning"
+                                        onclick="openTable('timePlanning')"
+                                        >timePlanning</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        href="#"
+                                        id="users"
+                                        onclick="openTable('users')"
+                                        >users</a
+                                    >
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary">add</button>
+                            <div id="container_table"></div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <!-- js libreri -->
     <script
@@ -35,5 +142,12 @@
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- main js function -->
-    <script></script>
+    <script>
+        function openTable(table) {
+            $("#myTab a").removeClass("active");
+            $("#" + table).addClass("active");
+
+            $("#container_table").load(`table.html`);
+        }
+    </script>
 </html>
