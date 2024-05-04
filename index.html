@@ -148,6 +148,12 @@
         const config = {
             headers: { authorization: localStorage.getItem("token") },
         };
+        var rows;
+        $.getJSON("schemaTables.json", function (data) {
+            rows = data;
+        }).fail(function () {
+            console.log("An error has occurred.");
+        });
 
         const getItems = async (table) => {
             try {
@@ -166,8 +172,35 @@
             $("#" + table).addClass("active");
 
             $("#container_table").load(`table.html`);
+            Promise.any([getItems(table)]).then((value) => {
+                var columnTable = "loading";
+                var columnRows = [];
+                var dataDataTable = [];
+                const columnsDataTable = [];
+                var tableColumnHtml = "";
 
-            console.log("getItems: ", getItems(table));
+                rows.find((o, index) => {
+                    o.columnTable === table && (columnRows = o.rows);
+                });
+
+                columnTable =
+                    columnRows.length == 0 ? Object.keys(value[0]) : columnRows;
+                dataDataTable = value;
+
+                for (i in columnTable) {
+                    columnsDataTable.push({ data: columnTable[i] });
+                    tableColumnHtml =
+                        tableColumnHtml + "<th>" + columnTable[i] + "</th>";
+                }
+
+                const target = columnTable.indexOf("datetime");
+
+                console.log("dataDataTable: ", dataDataTable);
+                console.log("columnTable_", table, " :", columnTable);
+                console.log("columnsDataTable: ", columnsDataTable);
+
+                $("#result").wrapInner(tableColumnHtml);
+            });
         }
     </script>
 </html>

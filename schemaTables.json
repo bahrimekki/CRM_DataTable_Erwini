@@ -1,0 +1,68 @@
+[
+    { "colunms_tab": "steg", "rows": ["_id", "owner", "zone_id", "etat"] },
+    {
+        "colunms_tab": "connection",
+        "rows": ["_id", "owner", "puit_id", "datetime"]
+    },
+    { "colunms_tab": "alarme", "rows": ["_id", "owner", "zone_id", "etat"] },
+    {
+        "colunms_tab": "control",
+        "rows": ["_id", "owner", "puit_id", "datetime", "etat"]
+    },
+    {
+        "colunms_tab": "command",
+        "rows": [
+            "_id",
+            "owner",
+            "zone_id",
+            "datetime",
+            "type_action",
+            "comande"
+        ]
+    },
+    {
+        "colunms_tab": "zone",
+        "rows": [
+            "_id",
+            "owner",
+            "name",
+            "firstName",
+            "type_off_cultivation",
+            "coordinate"
+        ]
+    },
+    {
+        "colunms_tab": "reonaut",
+        "rows": ["_id", "owner", "device_id", "style", "period"]
+    },
+    {
+        "colunms_tab": "device",
+        "rows": ["_id", "owner", "zone_id", "tel", "type", "datetime"]
+    },
+    {
+        "colunms_tab": "timePlanning",
+        "rows": [
+            "_id",
+            "owner",
+            "zone_id",
+            "time_id",
+            "days",
+            "from",
+            "period",
+            "fin"
+        ]
+    },
+    {
+        "colunms_tab": "users",
+        "rows": [
+            "_id",
+            "email",
+            "firstName",
+            "lastName",
+            "phone",
+            "description",
+            "region",
+            "password"
+        ]
+    }
+]
