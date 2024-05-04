@@ -178,6 +178,8 @@
                 var dataDataTable = [];
                 const columnsDataTable = [];
                 var tableColumnHtml = "";
+                const FROM_PATTERN = "DD/MM/YYYY HH:mm";
+                const TO_PATTERN = "YYYY-MM-DD HH:mm";
 
                 rows.find((o, index) => {
                     o.columnTable === table && (columnRows = o.rows);
@@ -200,6 +202,27 @@
                 console.log("columnsDataTable: ", columnsDataTable);
 
                 $("#result").wrapInner(tableColumnHtml);
+
+                new DataTable("#datatable", {
+                    // serverSide: true,
+                    processing: true,
+                    paging: true,
+                    columns: columnsDataTable,
+                    data: dataDataTable,
+                    columnDefs:
+                        target == -1
+                            ? []
+                            : [
+                                  {
+                                      targets: target,
+                                      render: $.fn.dataTable.render.moment(
+                                          FROM_PATTERN,
+                                          TO_PATTERN
+                                      ),
+                                  },
+                              ],
+                    order: [[target == -1 ? 0 : target, "desc"]],
+                });
             });
         }
     </script>
