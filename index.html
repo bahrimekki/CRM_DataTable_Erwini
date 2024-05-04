@@ -182,12 +182,21 @@
                 const TO_PATTERN = "YYYY-MM-DD HH:mm";
 
                 rows.find((o, index) => {
-                    o.columnTable === table && (columnRows = o.rows);
+                    o.colunms_tab === table && (columnRows = o.rows);
                 });
 
+                if (table === "command") {
+                    value.find((o, index) => {
+                        dataDataTable.push(o.latestDate);
+                    });
+                } else {
+                    dataDataTable = value;
+                }
+
                 columnTable =
-                    columnRows.length == 0 ? Object.keys(value[0]) : columnRows;
-                dataDataTable = value;
+                    columnRows.length == 0
+                        ? Object.keys(dataDataTable[0])
+                        : columnRows;
 
                 dataDataTable = dataDataTable.map((v) => ({
                     ...v,
@@ -200,6 +209,28 @@
                         v._id +
                         "')>edit</button>",
                 }));
+                if (table === "zone") {
+                    dataDataTable = dataDataTable.map((v) => ({
+                        ...v,
+                        coordinate:
+                            '<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="' +
+                            v.coordinate +
+                            '">localisation G Map</button>',
+                    }));
+                }
+                if (table === "users") {
+                    dataDataTable = dataDataTable.map((v) => ({
+                        ...v,
+                        password:
+                            '<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="' +
+                            v.password +
+                            '">password</button>',
+                        region:
+                            '<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="' +
+                            v.region +
+                            '">localisation G Map</button>',
+                    }));
+                }
 
                 for (i in columnTable) {
                     columnsDataTable.push({ data: columnTable[i] });
