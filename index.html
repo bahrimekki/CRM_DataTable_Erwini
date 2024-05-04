@@ -189,11 +189,25 @@
                     columnRows.length == 0 ? Object.keys(value[0]) : columnRows;
                 dataDataTable = value;
 
+                dataDataTable = dataDataTable.map((v) => ({
+                    ...v,
+                    action:
+                        "<button class='btn btn-danger' onclick=delet('" +
+                        table +
+                        "','" +
+                        v._id +
+                        "')>delet</button><button class='btn btn-info' onclick=alert('edit_id:::" +
+                        v._id +
+                        "')>edit</button>",
+                }));
+
                 for (i in columnTable) {
                     columnsDataTable.push({ data: columnTable[i] });
                     tableColumnHtml =
                         tableColumnHtml + "<th>" + columnTable[i] + "</th>";
                 }
+                columnsDataTable.push({ data: "action" });
+                tableColumnHtml = tableColumnHtml + "<th>action</th>";
 
                 const target = columnTable.indexOf("datetime");
 
