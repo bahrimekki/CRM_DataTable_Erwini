@@ -124,6 +124,52 @@
                 </div>
             </div>
         </div>
+        <!-- Modal delet confirmation -->
+        <div
+            class="modal fade"
+            id="delet-confirmation-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            confirmation de Supression
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn btn-light close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                            onclick="annul_delet()"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body-confirm-delet"></div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                            onclick="annul_delet()"
+                        >
+                            Close
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="btn-conf-del"
+                        >
+                            confirm supression
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <!-- js libreri -->
     <script
@@ -166,7 +212,44 @@
                 return errors;
             }
         };
+        //--> delet functions
+        function annul_delet() {
+            $("#delet-confirmation-modal").modal("toggle");
+        }
 
+        const confirm_delet = async (table, id) => {
+            try {
+                console.log("table : ", table, " id : ", id);
+                const response = await axios.post(
+                    `${BASE_URL}/delet_${table}/`,
+                    {
+                        headers: {
+                            authorization: localStorage.getItem("token"),
+                        },
+                        _id: id,
+                        token2: localStorage.getItem("token2"),
+                    }
+                );
+                console.log("res: ", response.data);
+                $("#delet-confirmation-modal").modal("toggle");
+                openTable(table);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        const delet = async (table, id) => {
+            $("#delet-confirmation-modal").modal("toggle");
+            $("#btn-conf-del").removeAttr("onclick");
+            $("#btn-conf-del").attr(
+                "onClick",
+                'confirm_delet("' + table + '","' + id + '");'
+            );
+            $("#modal-body-confirm-delet").text(
+                "êtes-vous sûr de supprimer l'identifiant de l'appareil : " + id
+            );
+        };
+        //<--
         function openTable(table) {
             $("#myTab a").removeClass("active");
             $("#" + table).addClass("active");
