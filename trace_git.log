@@ -1,0 +1,86 @@
+─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:24:36 on master)──> git add .                                                               ──(sam.,mai04)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:32:51 on master ✚)──> git commit -m "setap project"                                         ──(sam.,mai04)─┘
+[master (commit racine) d18fb03] setap project
+ 1 file changed, 39 insertions(+)
+ create mode 100644 index.html
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:33:19 on master)──> git branch -M main                                                      ──(sam.,mai04)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:34:19 on main)──> git remote add origin git@github.com:bahrimekki/CRM_DataTable_Erwini.git  ──(sam.,mai04)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:34:35 on main)──> git push -u origin main                                                   ──(sam.,mai04)─┘
+Énumération des objets: 3, fait.
+Décompte des objets: 100% (3/3), fait.
+Compression par delta en utilisant jusqu'à 8 fils d'exécution
+Compression des objets: 100% (2/2), fait.
+Écriture des objets: 100% (3/3), 907 octets | 907.00 Kio/s, fait.
+Total 3 (delta 0), réutilisés 0 (delta 0), réutilisés du pack 0
+To github.com:bahrimekki/CRM_DataTable_Erwini.git
+ * [new branch]      main -> main
+La branche 'main' est paramétrée pour suivre la branche distante 'main' depuis 'origin'.
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:34:56 on main)──> git add .                                                                 ──(sam.,mai04)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:40:07 on main ✚)──> git commit -m "featur/body_html+navbar_html+table_html"                 ──(sam.,mai04)─┘
+[main eac2f0b] featur/body_html+navbar_html+table_html
+ 2 files changed, 120 insertions(+), 1 deletion(-)
+ create mode 100644 table.html
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:41:42 on main)──> git add .                                                                 ──(sam.,mai04)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:46:30 on main ✚)──> git commit -m "featur/getItem withe axios"                              ──(sam.,mai04)─┘
+[main 16f785e] featur/getItem withe axios
+ 1 file changed, 20 insertions(+)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(23:47:10 on main)──> git add .                                                                 ──(sam.,mai04)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:22:47 on main ✚)──> git commit -m "featur/schemaTables+read and display columns"            ──(dim.,mai05)─┘
+[main 680dbe5] featur/schemaTables+read and display columns
+ 2 files changed, 102 insertions(+), 1 deletion(-)
+ create mode 100644 schemaTables.json
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:24:23 on main)──> git add .                                                                 ──(dim.,mai05)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:29:40 on main ✚)──> git commit -m "featur/display dataTable jquery"                         ──(dim.,mai05)─┘
+[main 062ef96] featur/display dataTable jquery
+ 1 file changed, 23 insertions(+)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:30:07 on main)──> git add .                                                                 ──(dim.,mai05)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:33:06 on main ✚)──> git commit -m "featur/add action column+delet & edit button"            ──(dim.,mai05)─┘
+[main 1d0ecb5] featur/add action column+delet & edit button
+ 1 file changed, 14 insertions(+)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:33:44 on main)──> git add .                                                                 ──(dim.,mai05)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:48:33 on main ✚)──> git commit -m "fix/tables (command+zone+users) contition spesifique"    ──(dim.,mai05)─┘
+[main c9150c5] fix/tables (command+zone+users) contition spesifique
+ 1 file changed, 34 insertions(+), 3 deletions(-)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:50:30 on main)──> git add .                                                                 ──(dim.,mai05)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:58:41 on main ✚)──> git commit -m "featur/coloration ligne de DataTable"                    ──(dim.,mai05)─┘
+[main f29397a] featur/coloration ligne de DataTable
+ 1 file changed, 28 insertions(+)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(00:59:18 on main)──> git add .                                                                 ──(dim.,mai05)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(01:04:52 on main ✚)──> git commit -m "featur/delet functions + moda confirmation"              ──(dim.,mai05)─┘
+[main db8db78] featur/delet functions + moda confirmation
+ 1 file changed, 83 insertions(+)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(01:05:14 on main)──> git push -u origin main                                                   ──(dim.,mai05)─┘
+Énumération des objets: 28, fait.
+Décompte des objets: 100% (28/28), fait.
+Compression par delta en utilisant jusqu'à 8 fils d'exécution
+Compression des objets: 100% (26/26), fait.
+Écriture des objets: 100% (26/26), 6.06 Kio | 1.01 Mio/s, fait.
+Total 26 (delta 7), réutilisés 0 (delta 0), réutilisés du pack 0
+remote: Resolving deltas: 100% (7/7), done.
+To github.com:bahrimekki/CRM_DataTable_Erwini.git
+   d18fb03..db8db78  main -> main
+La branche 'main' est paramétrée pour suivre la branche distante 'main' depuis 'origin'.
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
+└─(01:07:26 on main)──> 

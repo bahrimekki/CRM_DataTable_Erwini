@@ -170,6 +170,63 @@
                 </div>
             </div>
         </div>
+        <!-- Modal edit confirmation -->
+        <div
+            class="modal fade"
+            id="edit-confirmation-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            confirmation d'edit
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn btn-light close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                            onclick="annul_edit()"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body-confirm-edit">
+                        <p></p>
+                        <label for="exampleInputEmail1">etat</label>
+                        <select
+                            class="form-select"
+                            id="input-etat"
+                            aria-label="Default select example"
+                        >
+                            <option id="input-etat-on" value="on">on</option>
+                            <option id="input-etat-off" value="off">off</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                            onclick="annul_edit()"
+                        >
+                            Close
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="btn-conf-edit"
+                        >
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <!-- js libreri -->
     <script
@@ -250,6 +307,49 @@
             );
         };
         //<--
+        //--> edit functions
+        function annul_edit() {
+            $("#edit-confirmation-modal").modal("toggle");
+        }
+
+        const confirm_edit = async (table, id) => {
+            try {
+                var val = document.getElementById("input-etat").value;
+                console.log("table : ", table, " id : ", id, "etat : ", val);
+                const response = await axios.post(
+                    `${BASE_URL}/edit_${table}/`,
+                    {
+                        headers: {
+                            authorization: localStorage.getItem("token"),
+                        },
+                        _id: id,
+                        token2: localStorage.getItem("token2"),
+                        etat: val,
+                    }
+                );
+                console.log("res: ", response.data);
+                $("#edit-confirmation-modal").modal("toggle");
+                openTable(table);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        function edit(table, id, etat) {
+            $("#edit-confirmation-modal").modal("toggle");
+            $("#btn-conf-edit").removeAttr("onclick");
+            $("#input-etat option[value='" + etat + "']").attr(
+                "selected",
+                "selected"
+            );
+            $("#btn-conf-edit").attr(
+                "onClick",
+                'confirm_edit("' + table + '","' + id + '");'
+            );
+            $("#modal-body-confirm-edit p").text(
+                "êtes-vous sûr d'éditer la ligne avec l'id : " + id
+            );
+        }
+        //<--
         function openTable(table) {
             $("#myTab a").removeClass("active");
             $("#" + table).addClass("active");
@@ -289,8 +389,12 @@
                         table +
                         "','" +
                         v._id +
-                        "')>delet</button><button class='btn btn-info' onclick=alert('edit_id:::" +
+                        "')>delet</button><button class='btn btn-info' onclick=edit('" +
+                        table +
+                        "','" +
                         v._id +
+                        "','" +
+                        v.etat +
                         "')>edit</button>",
                 }));
                 if (table === "zone") {
