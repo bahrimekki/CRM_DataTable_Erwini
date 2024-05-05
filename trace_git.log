@@ -84,3 +84,14 @@ To github.com:bahrimekki/CRM_DataTable_Erwini.git
 La branche 'main' est paramétrée pour suivre la branche distante 'main' depuis 'origin'.
 ┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)────────────────────────────────(mekki@mekki-Vostro-3500:pts/2)─┐
 └─(01:07:26 on main)──> 
+
+
+┌─(...Engineering/Web/CRM_DataTable_Erwini)───(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(12:56:28 on main ✭)──> git add .                            ──(dim.,mai05)─┘
+┌─(...Engineering/Web/CRM_DataTable_Erwini)───(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(13:03:45 on main ✚)──> git commit -m "featur/edit functions + moda confirmation"
+[main 7465b6e] featur/edit functions + moda confirmation
+ 2 files changed, 191 insertions(+), 1 deletion(-)
+ create mode 100644 trace_git.log
+┌─(...Engineering/Web/CRM_DataTable_Erwini)───(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(13:04:06 on main)──> 

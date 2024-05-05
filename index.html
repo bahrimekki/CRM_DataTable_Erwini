@@ -115,6 +115,15 @@
                                         >users</a
                                     >
                                 </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        href="#"
+                                        id="users"
+                                        onclick="openTable('lecturecapteur')"
+                                        >lecturecapteur</a
+                                    >
+                                </li>
                             </ul>
                             <button class="btn btn-primary">add</button>
                             <div id="container_table"></div>
@@ -428,7 +437,10 @@
                 columnsDataTable.push({ data: "action" });
                 tableColumnHtml = tableColumnHtml + "<th>action</th>";
 
-                const target = columnTable.indexOf("datetime");
+                const target =
+                    columnTable.indexOf("datetime") === -1
+                        ? columnTable.indexOf("date_time")
+                        : columnTable.indexOf("datetime");
 
                 console.log("dataDataTable: ", dataDataTable);
                 console.log("columnTable_", table, " :", columnTable);

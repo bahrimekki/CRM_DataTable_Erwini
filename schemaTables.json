@@ -22,14 +22,7 @@
     },
     {
         "colunms_tab": "zone",
-        "rows": [
-            "_id",
-            "owner",
-            "name",
-            "firstName",
-            "type_off_cultivation",
-            "coordinate"
-        ]
+        "rows": ["_id", "owner", "name", "type_off_cultivation", "coordinate"]
     },
     {
         "colunms_tab": "reonaut",
@@ -63,6 +56,19 @@
             "description",
             "region",
             "password"
+        ]
+    },
+    {
+        "colunms_tab": "lecturecapteur",
+        "rows": [
+            "_id",
+            "owner",
+            "zone_id",
+            "Humidite",
+            "temperature_sol",
+            "temperature_externe",
+            "niveau_batterie",
+            "date_time"
         ]
     }
 ]
