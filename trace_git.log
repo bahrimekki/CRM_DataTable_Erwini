@@ -95,3 +95,23 @@ La branche 'main' est paramétrée pour suivre la branche distante 'main' depuis
  create mode 100644 trace_git.log
 ┌─(...Engineering/Web/CRM_DataTable_Erwini)───(mekki@mekki-Vostro-3500:pts/0)─┐
 └─(13:04:06 on main)──> 
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)─────────────────────(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(16:25:16 on main ✹)──> git add .                                                    ──(dim.,mai05)─┘
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)─────────────────────(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(16:25:25 on main ✚)──> git commit -m "featur/add lecturecapteur table"              ──(dim.,mai05)─┘
+[main c27fe8d] featur/add lecturecapteur table
+ 3 files changed, 39 insertions(+), 10 deletions(-)
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)─────────────────────(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(16:25:53 on main)──> git push -u origin main                                        ──(dim.,mai05)─┘
+Énumération des objets: 12, fait.
+Décompte des objets: 100% (12/12), fait.
+Compression par delta en utilisant jusqu'à 8 fils d'exécution
+Compression des objets: 100% (9/9), fait.
+Écriture des objets: 100% (9/9), 2.84 Kio | 968.00 Kio/s, fait.
+Total 9 (delta 4), réutilisés 0 (delta 0), réutilisés du pack 0
+remote: Resolving deltas: 100% (4/4), completed with 2 local objects.
+To github.com:bahrimekki/CRM_DataTable_Erwini.git
+   e78bfec..c27fe8d  main -> main
+La branche 'main' est paramétrée pour suivre la branche distante 'main' depuis 'origin'.
+┌─(~/BlueJetEngineering/Web/CRM_DataTable_Erwini)─────────────────────(mekki@mekki-Vostro-3500:pts/0)─┐
+└─(16:26:07 on main)──>
