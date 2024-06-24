@@ -21,6 +21,17 @@
         ]
     },
     {
+        "colunms_tab": "command_zone_id",
+        "rows": [
+            "_id",
+            "owner",
+            "zone_id",
+            "datetime",
+            "type_action",
+            "comande"
+        ]
+    },
+    {
         "colunms_tab": "zone",
         "rows": ["_id", "owner", "name", "type_off_cultivation", "coordinate"]
     },

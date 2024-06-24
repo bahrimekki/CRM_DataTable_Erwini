@@ -73,6 +73,15 @@
                                 <li class="nav-item">
                                     <a
                                         class="nav-link"
+                                        id="command_zone_id"
+                                        href="#"
+                                        onclick="openTable('command_zone_id')"
+                                        >command_zone_id</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
                                         href="#"
                                         id="zone"
                                         onclick="openTable('zone')"
@@ -126,6 +135,10 @@
                                 </li>
                             </ul>
                             <button class="btn btn-primary">add</button>
+                            <p>
+                                Input zone_id:
+                                <input type="text" id="zone_id" value="" />
+                            </p>
                             <div id="container_table"></div>
                         </div>
                         <div class="col-md-1"></div>
@@ -257,9 +270,7 @@
     <script>
         // const BASE_URL = "http://localhost:3000/api/administration";
         const BASE_URL = "https://erwini.herokuapp.com/api/administration";
-        const config = {
-            headers: { authorization: localStorage.getItem("token") },
-        };
+
         var rows;
         $.getJSON("schemaTables.json", function (data) {
             rows = data;
@@ -269,6 +280,10 @@
 
         const getItems = async (table) => {
             try {
+                const config = {
+                    headers: { authorization: localStorage.getItem("token") },
+                    zone_id: $("#zone_id").val(),
+                };
                 const response = await axios.post(
                     `${BASE_URL}/get_${table}/`,
                     config
