@@ -266,6 +266,27 @@
         crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- DataTables Buttons extension -->
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.datatables.net/buttons/2.1.1/css/buttons.dataTables.min.css"
+    />
+    <script
+        type="text/javascript"
+        charset="utf8"
+        src="https://cdn.datatables.net/buttons/2.1.1/js/dataTables.buttons.min.js"
+    ></script>
+    <script
+        type="text/javascript"
+        charset="utf8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"
+    ></script>
+    <script
+        type="text/javascript"
+        charset="utf8"
+        src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"
+    ></script>
     <!-- main js function -->
     <script>
         // const BASE_URL = "http://localhost:3000/api/administration";
@@ -464,11 +485,27 @@
                 $("#result").wrapInner(tableColumnHtml);
 
                 new DataTable("#datatable", {
+                    dom: "Bfrtip",
                     // serverSide: true,
                     processing: true,
                     paging: true,
                     columns: columnsDataTable,
                     data: dataDataTable,
+                    buttons: ["copy", "csv", "excel"],
+                    layout: {
+                        topStart: "buttons",
+                    },
+                    // fixedColumns: true,
+                    // fixedHeader: true,
+                    // keys: true,
+                    responsive: true,
+                    // scrollX: "100%",
+                    // deferRender: true,
+                    // scroller: true,
+                    // buttons: ["copy", "excel", "pdf"],
+                    // layout: {
+                    //     topStart: "buttons",
+                    // },
                     columnDefs:
                         target == -1
                             ? []
@@ -510,6 +547,9 @@
                         }
                     },
                 });
+                // new DataTable.Buttons(tablemekki, {
+                //     buttons: ["copy", "excel", "pdf"],
+                // });
             });
         }
     </script>
