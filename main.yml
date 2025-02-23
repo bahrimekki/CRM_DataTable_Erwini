@@ -1,0 +1,16 @@
+name: test
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      MY_BASE_URL: ${{vars.BASE_URL}}
+
+    steps:
+      - name: "read variabls"
+        run: echo "my base_url is ${{vars.BASE_URL}}"
+
+      - name: "secret"
+        run: echo "my api_url is ${{secrets.API_URL}}"
