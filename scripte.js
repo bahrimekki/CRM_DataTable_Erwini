@@ -55,8 +55,8 @@ const loadSectionData = async (table) => {
         }
         // On ajoute la zone à la liste des zones du propriétaire
         acc[item.owner].zones.push({ puit_id: item.puit_id, datetime: moment(item.datetime).format("YYYY-DD-MM HH:mm") });
-        acc[item.owner].datetime.push(moment(item.datetime).format("YYYY-DD-MM HH:mm"));
-        acc[item.owner].etat = (acc[item.owner].datetime.includes(dayjs().format("YYYY-MM-DD HH:mm")) || acc[item.owner].datetime.includes(dayjs().subtract(1, "minute").format("YYYY-MM-DD HH:mm"))?"on":"off");
+        acc[item.owner].datetime.push(moment(item.datetime).format("YYYY-DD-MM HH:mm").slice(0, -1));
+        acc[item.owner].etat = (acc[item.owner].datetime.includes(dayjs().format("YYYY-MM-DD HH:mm").slice(0, -1))?"on":"off");
         // moment("DD/MM/YYYY HH:mm", "YYYY-MM-DD HH:m")
         //console.log(moment(item.datetime).format("YYYY-DD-MM HH"))
         //acc[item.owner].datetime=(moment(item.datetime).format("YYYY-MM-DD HH:mm"));
@@ -80,7 +80,7 @@ const loadSectionData = async (table) => {
             <i class="fas fa-chevron-down icon"></i>
         </div>
         <ul class="nested">
-            ${item.zones.map(zone => `<li style="background-color:${zone.datetime >= dayjs().subtract(2, "minute").format("YYYY-MM-DD HH:mm")?"#00ff00":"#ff0000"}">${zone.puit_id}</li>`).join('')}
+            ${item.zones.map(zone => `<li style="background-color:${zone.datetime.slice(0, -1) == dayjs().format("YYYY-MM-DD HH:mm").slice(0, -1)?"#00ff00":"#ff0000"}">${zone.puit_id}</li>`).join('')}
         </ul>
     `;
     sidebar.appendChild(li);
@@ -323,7 +323,7 @@ const loadTableData = async (table) => {
         $(row).addClass("table-success");
         }
         // console.log(moment(data.datetime).format("YYYY-DD-MM HH:mm"), " day js : " ,dayjs().format(TO_PATTERN))
-        if (table === "connection" && moment(data.datetime).format("YYYY-DD-MM HH:mm") >= dayjs().subtract(1, "minute").format(TO_PATTERN)) {
+        if (table === "connection" && moment(data.datetime).format("YYYY-DD-MM HH:mm").slice(0, -1) == dayjs().format(TO_PATTERN).slice(0, -1)) {
         $(row).addClass("table-success");
     } else if (table === "connection") {
         $(row).addClass("table-danger");
